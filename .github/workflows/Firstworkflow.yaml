@@ -1,0 +1,13 @@
+name: first workflow
+on : [push]
+
+jobs:
+  run-commands:
+    runs-on: ubunto-latest
+    steps:
+      - name: echo un string
+        run: echo "hello world"
+      - name: multiple command
+        run: |
+          node -v
+          npm -v
