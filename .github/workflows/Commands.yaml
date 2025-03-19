@@ -1,0 +1,38 @@
+name: Despliegue del Sitio Web
+
+on: [push]
+
+jobs: 
+    build-and-deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Obtener codigo
+              uses: actions/checkout@v2
+
+            - name: Configurar entorno
+              run: |
+                echo "::group:: Instalando dependencias"
+                npm install
+                echo "::endgroup::"
+            
+                echo "HORA_COMPILACION=$(date + '%H:%M:%S')">> $GITHUB_ENV
+
+            - name: compilar sitio
+              id: compilacion
+              run: |
+                npm run build
+                #guardo los datos
+                echo "ARCHIVOS_GENERADOS=42" >> $GITHUB_OUTPUT
+
+            - name: Resumen del despliegue
+              run: |
+                echo "Sitio complidado a las $HORA_COMPILACION"
+                echo "::notice::Sitio complidado a las $HORA_COMPILACION"
+                echo "Se generaron ${{ steps.compilacion.outputs.ARCHIVOS_GENERADOS }} archivos"
+
+            - name: Generar resumen
+              run: |
+                echo "### Resumen de Despliegue" >> $GITHUB_STEPS_SUMMARY
+                echo "hora: $HORA_COMPILACION" >> $$GITHUB_STEPS_SUMMARY
+                echo "* Archivos: ${{ steps.compilacion.outputs.ARCHIVOS_GENERADOS}}" >> $GITHUB_STEPS_SUMMARY
+                
