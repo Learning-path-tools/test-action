@@ -1,0 +1,12 @@
+name: SimpleAction
+on: [push]
+
+jobs:
+    descargar-el-repositorio:
+        runs-on: ubuntu-latest
+        steps:
+            - name: List Files befor
+              run: ls -a
+            - uses: actions/checkout@v3 #aca uso un actio, para esto no necesito un run
+            - name: List Files After
+              run: ls -a 
