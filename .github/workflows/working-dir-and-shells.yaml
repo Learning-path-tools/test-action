@@ -1,5 +1,10 @@
 name: Working Dirs & shells
 on: [push]
+
+defaults:
+    run:
+        shell: bash
+
 jobs:
     display-wd-info:
         runs-on: ubuntu-latest
@@ -11,3 +16,22 @@ jobs:
                 echo $GITHUB_SHA
                 echo $GITHUB_REPOSITORY
                 echo $GITHUB_WORKSPACES
+    display-wd-info-windows:
+        runs-on: windows-latest
+        defaults:
+            run:
+                shell: pwsh
+        steps:
+            - name: Display Working Directory
+              run: |
+                Get-location
+                dir
+                echo $env:GITHUB_SHA
+                echo $env:GITHUB_REPOSITORY
+                echo $env:GITHUB_WORKSPACES
+
+            - name: python shell
+              shell: python
+              run: |
+                import platform
+                print(platform.processor())
