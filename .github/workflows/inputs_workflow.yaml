@@ -1,5 +1,8 @@
 name: Workflows con Inputs - Manual triggers
 on:
+    push:
+        branches:
+            - Test_david
     workflow_dispatch:
         inputs:
             string:
