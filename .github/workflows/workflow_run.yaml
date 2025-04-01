@@ -1,7 +1,7 @@
 name: Workflow when other finish
 on:
     workflow_run:
-        workflows: [events]
+        workflows: [SimpleAction]
         types: [completed]
 
 jobs:
