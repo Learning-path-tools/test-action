@@ -1,4 +1,4 @@
-name: Workflows con Inputs - Manual triggers
+name: Workflows con Inputs2222222 - Manual triggers
 on:
     workflow_dispatch:
         inputs:
