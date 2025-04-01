@@ -1,0 +1,14 @@
+name: Workflow when other finish
+on:
+    workflow_run:
+        workflows: [events]
+        types: [completed]
+
+jobs:
+    echo-saludo:
+        runs-on: ubuntu-latest
+        steps:
+            - run: echo "Fui lanzado ya que el otro termino"
+
+
+# Este workflow me sirve para cuando termina produccion
