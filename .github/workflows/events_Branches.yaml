@@ -1,0 +1,15 @@
+name: Running in other branch
+on:
+    push:
+        branches:
+            - Test_david
+
+jobs:
+    testing_branches_workflow:
+        runs-on: ubuntu-latest
+        steps: 
+            - name: checkout test
+              uses: actions/checkout@v2
+
+            - name: simple echo
+              run: echo "mensaje to check that i run in other branches"

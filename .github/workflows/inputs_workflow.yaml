@@ -1,0 +1,41 @@
+name: Workflows con Inputs - Manual triggers
+on:
+    workflow_dispatch:
+        inputs:
+            string:
+                description: A string input
+                type: string
+                required: true
+                default: "default value"
+            number:
+                description: "Mostrar un numero"
+                default: 5
+                type: number
+            option:
+                description: "doy opciones a elegir"
+                required: true
+                default: "opcion 2"
+                type: choice
+                options:
+                    - opcion 1
+                    - opcion 2
+                    - opcion 3
+            boolean:
+                description: "Una opcion boleana"
+                required: false
+                type: boolean
+
+
+jobs:
+    ingresando_input:
+        runs-on: ubuntu-latest
+        steps:
+            - run: echo $GITHUB_REF
+            - run: |
+                echo "String: ${{inputs.string}}"
+                echo "Number: ${{inputs.number}}"
+                echo "Option: ${{inputs.option}}"
+                echo "Boolean: ${{inputs.boolean}}"
+
+
+    
