@@ -1,0 +1,23 @@
+name: Expressions & Contexts
+on: [push, pull_request, issues, workflow_dispatch]
+run-name: "Expressions & Contexts by ${{ github.actor }}, event: ${{ github.event_name }}" #me va a mostrar quien lo lanzo y que evento fue el que lo disparo
+
+jobs:
+  expressions-and-contexts:
+    runs-on: ubuntu-latest
+    steps:
+      - name: expressions
+        id: expressions
+        run: |
+          echo ${{ 1 }}
+          echo ${{ 'this is a string' }}
+          echo ${{null}}
+          echo ${{ true }}
+          echo ${{1>2}}
+      - name: Dump contexts
+        run: |
+          echo '${{ toJson(github) }}'
+          echo '${{ toJson(job) }}'
+          echo '${{ toJson(steps) }}'
+          echo '${{ toJson(secrets) }}'
+
