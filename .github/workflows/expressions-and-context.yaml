@@ -16,8 +16,8 @@ jobs:
           echo ${{1>2}}
       - name: Dump contexts
         run: |
-          echo '${{ toJson(github) }}'
-          echo '${{ toJson(job) }}'
-          echo '${{ toJson(steps) }}'
-          echo '${{ toJson(secrets) }}'
+          echo '${{ toJson(github) }}' #me mustra el contexto de github de la ejecucion
+          echo '${{ toJson(job) }}' #me muestra el contexto del job
+          echo '${{ toJson(steps) }}' #me muestra el contexto de los steps
+          echo '${{ toJson(secrets) }}' #me muestra el contexto de los secrets
 
