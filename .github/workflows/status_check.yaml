@@ -12,6 +12,7 @@ jobs:
               id: step2
               run: exit 1
             - name: step 3
+              if: cancelled()
               run: echo 'run on cancelled'
 
     Job-2:
