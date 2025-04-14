@@ -5,6 +5,7 @@ run-name: "Expressions & Contexts by ${{ github.actor }}, event: ${{ github.even
 jobs:
   expressions-and-contexts:
     runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'push' }} #me va a correr el job solo si el evento es un push
     steps:
       - name: expressions
         id: expressions
