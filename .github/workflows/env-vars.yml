@@ -14,7 +14,7 @@ jobs:
             - name: paso 1
               run: echo "Hello from Job 1"
               env:
-                  MY_STEP_VAR: "Hello World in the step" #esta variable de entorno se puede usar en cualquier parte del step
+                  MY_STEP_VAR: "Hello World in the step" #esta variable de entorno se puede usar en cualquier parte del step donde le estoy declarando
             - name: paso 2
               run: echo "${{ env.MY_ENV_VAR }}" #uso la variable de entorno definida en el workflow
             - name: paso 3
