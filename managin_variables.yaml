@@ -11,3 +11,4 @@ jobs:
       - name: printing my variable
         run: |
           echo "My variable by default ${{ vars.VARIABLE1 }}"
+          echo "Done"
