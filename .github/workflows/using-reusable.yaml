@@ -1,0 +1,19 @@
+name: calling reusable workflow
+on:
+    workflow_dispatch:
+        inputs:
+          name:
+            description: 'descripcion de entrada'
+            type: string
+            default: 'David'
+            required: false
+
+jobs:
+    call-reusable:
+        uses: ./.github/workflows/reusable.yaml
+        secrets: inherit
+    using-reusable-with-outputs:
+        needs: call-reusable
+        runs-on: ubuntu-latest
+        steps:
+            - run: echo ${{ needs.call-reusable.outputs.date }} 
