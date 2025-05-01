@@ -1,0 +1,16 @@
+name: reusable workflow #la gran ventaja de un workflow reusable es que puedes llamarlo desde otro workflow o desde otro repositorio
+on:
+    workflow_call:
+        outputs:
+            date:
+                description: 'date'
+                value: ${{ jobs.generate_output.outputs.date }}
+
+jobs:
+    generate_output:
+        runs-on: ubuntu-latest
+        outputs:
+            date: ${{ steps.date-step.outputs.date}}
+        steps:
+            - run: echo "date=$(date)" >> $GITHUB_OUTPUT
+              id: date-step
