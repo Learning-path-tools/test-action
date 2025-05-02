@@ -5,31 +5,11 @@ on:
   workflow_dispatch:
     inputs:
       url_index:
-        description: 'URL Index (1-20) for testing'
+        description: 'URL Index (e.g., 1-20) for testing' # Updated description slightly
         required: true
         default: '1'
-        type: choice
-        options:
-          - '1'
-          - '2'
-          - '3'
-          - '4'
-          - '5'
-          - '6'
-          - '7'
-          - '8'
-          - '9'
-          - '10'
-          - '11'
-          - '12'
-          - '13'
-          - '14'
-          - '15'
-          - '16'
-          - '17'
-          - '18'
-          - '19'
-          - '20'
+        type: string # Changed type from 'choice' to 'string'
+        # Removed the 'options' list
 
 jobs:
   run-selenium-tests:
