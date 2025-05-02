@@ -35,7 +35,7 @@ load_dotenv()
 # URL base del 
 BASE_URLS = [
     f"https://ftdspprod{str(i).zfill(3)}.ftds.rockwellautomation.com/"
-    for i in range(1, 21)  # Genera URLs de produccion del 001 al 020
+    for i in range(1, 31)  # Genera URLs de produccion del 001 al 020
 ]
 # URL base por defecto (la primera en la lista)
 DEFAULT_BASE_URL = BASE_URLS[-1]
