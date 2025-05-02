@@ -400,47 +400,61 @@ class LoginPage(BasePage):
         
         # Open login page (will handle SSO button if needed)
         logger.info("PASO 1: Abrir página de login")
+        print("Abriendo página de login ✅")
         self.open_login_page()
         
         # Enter email and continue
         logger.info("PASO 2: Introducir dirección de email")
+        print("Introduciendo dirección de email ✅")
         self.enter_email(email)
         
         logger.info("PASO 3: Hacer clic en botón Continuar")
+        print("Haciendo clic en botón Continuar ✅")
         self.click_continue()
         
         # Enter password and sign in
         logger.info("PASO 4: Introducir contraseña")
+        print("Introduciendo contraseña ✅")
         self.enter_password(password)
         
         logger.info("PASO 5: Hacer clic en botón Sign In")
+        print("Haciendo clic en botón Sign In ✅")
         self.click_sign_in()
         
         logger.info("PASO 6: Hacer clic en new project")
+        print("Haciendo clic en new project ✅")
         self.step_new_project() 
         
         logger.info("PASO 7: Escribiendo nombre aleatorio")
+        print("Escribiendo nombre aleatorio ✅")
         self.typing_name_project()
         
         logger.info("PASO 8: Click en crear nuevo projecto")
+        print("Click en crear nuevo projecto ✅")
         self.create_new_project_click()
         logger.info("Click on dismiss button")
         self.dismiss_button()
         self.take_screenshot("New project Step")
+        print("Click en dismiss button ✅")
         
         logger.info("PASO 9: Validando Gitlab")
+        print("Validando Gitlab y VCS services✅")
         self.validate_gitlab()
         self.copilot_use()
         
         logger.info("PASO 10: Crear Smart object y validacion de vistas")
+        print("Creando Smart object y validacion de vistas✅")
         self.verifing_texts()
         self.take_screenshot("Creation of Smart Objects")
+        print("Tomando fotos ✅")
         
         logger.info("PASO 11: Seleccionar controlador")
+        print("Seleccionando controlador L85E✅")
         self.select_controller()
         self.take_screenshot("Devices")
         
         logger.info("PASO 12: VCS")
+        print("VCS✅")
         self.VCS()
         self.take_screenshot("VCS")
         
@@ -449,6 +463,7 @@ class LoginPage(BasePage):
         
         # Take a final screenshot
         self.take_screenshot("final step")
+        print("Tomando fotos finales ✅")
         
         # Here we could return the next page (e.g., DashboardPage) if needed
         return self
