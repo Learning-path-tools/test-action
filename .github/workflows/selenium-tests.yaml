@@ -2,12 +2,6 @@ name: 🤖Rockwell Automation Selenium Tests
 
 # Make the workflow only visible when on the JA_codes_support branch
 on:
-  push:
-    branches:
-      - JA_codes_support
-  pull_request:
-    branches:
-      - JA_codes_support
   workflow_dispatch:
     inputs:
       url_index:
@@ -43,8 +37,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          ref: JA_codes_support # Ensure this is the correct branch
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -137,21 +129,21 @@ jobs:
           # Run pytest. Ensure your test files are correctly located.
           # The base directory for the checkout is the root of your repository.
           # If your 'tests' directory is inside 'rockwell-automation-Stability-test', adjust the path:
-          # echo "data: ${{ inputs.url_index }}"
-          python -m pytest rockwell-automation-Stability-test/tests/test_login.py --url-index=3 -v
+          echo "data: ${{ github.event.inputs.url_index }}"
+          python -m pytest rockwell-automation-Stability-test/tests/test_login.py --url-index=${{ github.event.inputs.url_index }} -v
         env:
             # It's highly recommended to use GitHub Secrets for credentials
-            #TEST_USERNAME: ${{ secrets.TEST_USERNAME }} # Example using secrets
-            #TEST_PASSWORD: ${{ secrets.TEST_PASSWORD }} # Example using secrets
+            TEST_USERNAME: ${{ secrets.TEST_USERNAME }} # Example using secrets
+            TEST_PASSWORD: ${{ secrets.TEST_PASSWORD }} # Example using secrets
             # Or use the hardcoded values if secrets are not set up (less secure)
-            TEST_USERNAME: "rockwell.automation.1@gmx.com"
-            TEST_PASSWORD: "AB-Quality_tm1960"
+            #TEST_USERNAME: "rockwell.automation.1@gmx.com"
+            #TEST_PASSWORD: ""
 
       - name: Upload test logs
         uses: actions/upload-artifact@v4
         if: always() # Run even if previous steps fail
         with:
-          name: test-logs-3 # Add URL index to artifact name
+          name: test-logs-${{ github.event.inputs.url_index }} # Add URL index to artifact name
           path: reports/logs/
           retention-days: 7
 
@@ -159,7 +151,7 @@ jobs:
         uses: actions/upload-artifact@v4
         if: always() # Run even if previous steps fail
         with:
-          name: test-screenshots-3 # Add URL index to artifact name
+          name: test-screenshots-${{ github.event.inputs.url_index }} # Add URL index to artifact name
           path: reports/screenshots/
           retention-days: 7
 
