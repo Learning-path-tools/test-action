@@ -124,8 +124,8 @@ jobs:
 
       - name: Run Selenium test with specific URL index
         run: |
-          mkdir -p reports/logs
-          mkdir -p reports/screenshots
+          mkdir -p rockwell-automation-Stability-test/reports/logs
+          mkdir -p rockwell-automation-Stability-test/reports/screenshots
           # Run pytest. Ensure your test files are correctly located.
           # The base directory for the checkout is the root of your repository.
           # If your 'tests' directory is inside 'rockwell-automation-Stability-test', adjust the path:
@@ -144,7 +144,7 @@ jobs:
         if: always() # Run even if previous steps fail
         with:
           name: test-logs-${{ github.event.inputs.url_index }} # Add URL index to artifact name
-          path: reports/logs/
+          path: rockwell-automation-Stability-test/reports/logs/
           retention-days: 7
 
       - name: Upload screenshots
@@ -152,6 +152,6 @@ jobs:
         if: always() # Run even if previous steps fail
         with:
           name: test-screenshots-${{ github.event.inputs.url_index }} # Add URL index to artifact name
-          path: reports/screenshots/
+          path: rockwell-automation-Stability-test/reports/screenshots/
           retention-days: 7
 
