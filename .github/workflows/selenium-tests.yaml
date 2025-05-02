@@ -110,7 +110,7 @@ jobs:
           # The base directory for the checkout is the root of your repository.
           # If your 'tests' directory is inside 'rockwell-automation-Stability-test', adjust the path:
           echo "data: ${{ github.event.inputs.url_index }}"
-          python -m pytest rockwell-automation-Stability-test/tests/test_login.py --url-index=${{ github.event.inputs.url_index }} -v
+          python -m pytest rockwell-automation-Stability-test/tests/test_login.py --url-index=${{ github.event.inputs.url_index }} -v -s
         env:
             # It's highly recommended to use GitHub Secrets for credentials
             TEST_USERNAME: ${{ secrets.TEST_USERNAME }} # Example using secrets
