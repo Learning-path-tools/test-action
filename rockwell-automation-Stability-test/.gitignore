@@ -1,0 +1,31 @@
+# Entorno virtual
+venv/
+env/
+.venv/
+vscode
+
+# Archivos de caché de Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Logs
+*.log
+
+# Reportes
+reports/
+
+# Archivos de configuración de IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos temporales
+*.tmp
+*.bak

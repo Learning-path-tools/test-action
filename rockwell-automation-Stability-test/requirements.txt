@@ -1,0 +1,17 @@
+# Biblioteca principal para automatización web
+selenium==4.15.2
+
+# Framework de pruebas
+pytest==7.4.3
+pytest-html==4.1.1
+
+# Gestión de configuraciones
+webdriver-manager==4.0.1
+
+# Utilidades
+python-dotenv==1.0.0
+
+# Status cluster
+azure-identity==1.13.0
+azure-mgmt-containerservice==23.0.0
+azure-mgmt-resource==22.0.0
