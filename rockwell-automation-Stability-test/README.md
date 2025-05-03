@@ -21,11 +21,8 @@ This test automatically checks several key steps in the Rockwell Automation web 
 
    Type only the number (without leading zeros if it's less than 10). The default value is 1.
 
-   ![URL Index Field](assets/images/url-index-field.png)
 
 5. **Run**: Click the green "Run workflow" button below the index field.
-
-   ![Final Run Workflow Button](assets/images/final-run-button.png)
 
 ### What Happens Next?
 
