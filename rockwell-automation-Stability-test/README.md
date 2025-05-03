@@ -35,8 +35,6 @@ The test will start running automatically. You can watch the progress in the sam
 
 You can download these files by clicking on their names.
 
-![Artifacts Section](assets/images/artifacts-section.png)
-
 That's it! With these steps, you can launch the test for the server you need.
 
 ## Automation Framework for Rockwell Automation

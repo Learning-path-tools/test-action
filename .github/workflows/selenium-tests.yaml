@@ -1,4 +1,4 @@
-name: 🤖Rockwell Automation Selenium Tests
+name: 🤖Rockwell Automation General Tests
 
 # Make the workflow only visible when on the JA_codes_support branch
 on:
