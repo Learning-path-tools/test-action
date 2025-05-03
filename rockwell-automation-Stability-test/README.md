@@ -8,15 +8,9 @@ This test automatically checks several key steps in the Rockwell Automation web 
 
 1. **Go to the "Actions" Tab**: On the main page of this repository on GitHub, find and click the "Actions" tab at the top.
 
-   ![GitHub Actions Tab](assets/images/github-actions-tab.png)
-
-2. **Select the Workflow**: In the left-hand menu, find and click on the workflow named "🤖Rockwell Automation Selenium Tests".
-
-   ![GitHub Workflows List](assets/images/github-workflows-list.png)
+2. **Select the Workflow**: In the left-hand menu, find and click on the workflow named "🤖Rockwell Automation General Tests".
 
 3. **Start the Workflow**: You will see a button that says "Run workflow" on the right. Click on it.
-
-   ![Run Workflow Button](assets/images/run-workflow-button.png)
 
 4. **Choose the Server (URL Index)**: A field named "URL Index (e.g., 1-20) for testing" will appear. Here, you need to type the number of the specific server you want to test.
 
@@ -67,12 +61,7 @@ This framework uses Selenium with Python to automate tests on the Rockwell Autom
 
 ### Environment Setup
 
-1. Clone the repository
-2. Create a virtual environment: `python -m venv venv`
-3. Activate the virtual environment:
-   - Windows: `venv\Scripts\activate`
-   - macOS/Linux: `source venv/bin/activate`
-4. Install dependencies: `pip install -r requirements.txt`
+Install dependencies: `pip install -r requirements.txt`
 
 ### Running Tests
 
@@ -112,36 +101,6 @@ pytest tests/test_site_title.py --all-urls -n 4  # Runs in 4 parallel processes
 ### Author
 
 Jose David Angarita Pertuz
-
-## Automation Flow
-
-This diagram shows the step-by-step process performed by the stability test automation:
-
-```mermaid
-graph TD
-    A[Start Test] --> B(Open Login Page);
-    B --> C{SSO Button Present?};
-    C -- Yes --> D[Click SSO Button];
-    C -- No --> E[Enter Email];
-    D --> E;
-    E --> F[Click Continue];
-    F --> G[Enter Password];
-    G --> H[Click Sign In];
-    H --> I[Click New Project];
-    I --> J[Type Random Project Name];
-    J --> K[Click Create Project];
-    K --> L[Click Dismiss Button];
-    L --> M[Validate GitLab Sync];
-    M --> N[Use Copilot to Create Object];
-    N --> O[Verify Views & 'Local Changes' Text];
-    O --> P[Select Controller L85E];
-    P --> Q[Perform VCS Steps (Commit & Push)];
-    Q --> R[Take Final Screenshot];
-    R --> S[End Test];
-
-    style A fill:#f9f,stroke:#333,stroke-width:2px
-    style S fill:#f9f,stroke:#333,stroke-width:2px
-```
 
 ### Flow Description:
 
