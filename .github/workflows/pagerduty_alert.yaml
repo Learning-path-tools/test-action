@@ -2,51 +2,20 @@
 name: PagerDuty Alert Handler
 
 on:
-  workflow_dispatch:
-    inputs:
-      incident_id:
-        description: 'PagerDuty Incident ID'
-        required: true
-      title:
-        description: 'Alert Title'
-        required: true
-      urgency:
-        description: 'Alert Urgency'
-        required: true
-      service:
-        description: 'Service Name'
-        required: true
+  repository_dispatch:  # PagerDuty enviará aquí
+  workflow_dispatch:    # Para pruebas manuales
 
 jobs:
-  handle-alert:
+  handle-pagerduty-alert:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-      
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.10'
-      
-      - name: Log alert details
-        run: |
-          echo "Processing PagerDuty alert:"
-          echo "Incident ID: ${{ github.event.inputs.incident_id }}"
-          echo "Title: ${{ github.event.inputs.title }}"
-          echo "Urgency: ${{ github.event.inputs.urgency }}"
-          echo "Service: ${{ github.event.inputs.service }}"
-      
-      # Ejemplo: ejecutar un script Python para manejar la alerta
-      - name: Run alert handler script
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt  # Si tienes dependencias
-          python scripts/handle_alert.py \
-            --incident-id "${{ github.event.inputs.incident_id }}" \
-            --title "${{ github.event.inputs.title }}" \
-            --urgency "${{ github.event.inputs.urgency }}" \
-            --service "${{ github.event.inputs.service }}"
-        env:
-          # Agrega aquí variables de entorno que necesite tu script
-          API_KEY: ${{ secrets.API_KEY }}
+    - name: Debug PagerDuty Payload
+      run: |
+        echo "Payload completo de PagerDuty:"
+        echo '${{ toJson(github.event) }}' | jq '.'
+        
+    - name: Procesar Incidente
+      run: |
+        # PagerDuty envía los datos en client_payload
+        echo "Procesando incidente de PagerDuty..."
+        # Aquí va tu lógica de automatización
