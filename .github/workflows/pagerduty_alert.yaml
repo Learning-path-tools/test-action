@@ -2,8 +2,8 @@
 name: PagerDuty Alert Handler
 
 on:
-  repository_dispatch:  # PagerDuty enviará aquí
-  workflow_dispatch:    # Para pruebas manuales
+  repository_dispatch:
+    types: [pagey.ping]
 
 jobs:
   handle-pagerduty-alert:
